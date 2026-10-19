@@ -4,22 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ToDo List</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..800;1,9..40,400..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="title">
-    <h1>My ToDo List</h1>
-    </div>
-    <div class="container">
-    <form id ="form">
-        <label for="newTask">Enter your tasks</label>
-        <input type="text" id="newTask" placeholder="e.g., learn JavaScript">
-        <button type="submit" id="button">Add Task</button>
-    </form>
-    </div>
-    <div class ="task-list">
-        <ul id="todo-list"></ul>
-    </div>
+    <main class="app-card">
+        <header class="header">
+            <h1 class="app-title">TO DO</h1>
+            <p class="app-subtitle">Get things done, one task at a time.</p>
+        </header>
+
+        <div class="date-navigator">
+            <button type="button" id="prev-date" class="date-nav-btn" aria-label="Previous day">&larr;</button>
+            <div class="date-picker-wrapper">
+                <input type="date" id="date-picker" class="date-picker-input" aria-label="Select date">
+            </div>
+            <button type="button" id="next-date" class="date-nav-btn" aria-label="Next day">&rarr;</button>
+            <button type="button" id="today-btn" class="date-today-btn">Today</button>
+        </div>
+
+        <form id="form" class="task-form">
+            <div class="input-wrapper">
+                <input type="text" id="newTask" placeholder="Add a new task..." autocomplete="off">
+                <button type="submit" id="button">Add</button>
+            </div>
+        </form>
+
+        <div class="filter-bar">
+            <div class="filters">
+                <button type="button" class="filter-btn active" data-filter="all">All <span class="count-badge" id="count-all">0</span></button>
+                <button type="button" class="filter-btn" data-filter="active">Active <span class="count-badge" id="count-active">0</span></button>
+                <button type="button" class="filter-btn" data-filter="completed">Completed <span class="count-badge" id="count-completed">0</span></button>
+            </div>
+            <button type="button" id="clear-completed" class="clear-btn">Clear Done</button>
+        </div>
+
+        <div class="task-list">
+            <ul id="todo-list"></ul>
+        </div>
+    </main>
+    <script src="script.js"></script>
 </body>
-<script src="script.js"></script>
 </html>
